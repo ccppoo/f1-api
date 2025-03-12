@@ -22,3 +22,7 @@ go.work
 
 # f1 db
 f1db/
+
+# secrets
+conf/*
+!conf/example.ini
