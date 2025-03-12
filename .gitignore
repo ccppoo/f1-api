@@ -19,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+# f1 db
+f1db/
