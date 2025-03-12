@@ -25,14 +25,12 @@ type User struct {
 
 func GetJWTMiddleware() *jwt.GinJWTMiddleware {
 
-	authMiddleware, err := jwt.New(initParams())
+	ginJWTMiddleware, err := jwt.New(initParams())
 	if err != nil {
 		log.Fatal("JWT Error:" + err.Error())
 	}
 
-	return authMiddleware
-
-	// return handlerMiddleware(authMiddleware)
+	return ginJWTMiddleware
 }
 
 func HandlerMiddleware(authMiddleware *jwt.GinJWTMiddleware) gin.HandlerFunc {
@@ -120,13 +118,5 @@ func unauthorized() func(c *gin.Context, code int, message string) {
 			"code":    code,
 			"message": message,
 		})
-	}
-}
-
-func handleNoRoute() func(c *gin.Context) {
-	return func(c *gin.Context) {
-		claims := jwt.ExtractClaims(c)
-		log.Printf("NoRoute claims: %#v\n", claims)
-		c.JSON(404, gin.H{"code": "PAGE_NOT_FOUND", "message": "Page not found"})
 	}
 }

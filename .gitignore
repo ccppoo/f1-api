@@ -26,3 +26,6 @@ f1db/
 # secrets
 conf/*
 !conf/example.ini
+
+# dev
+tmp/

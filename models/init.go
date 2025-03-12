@@ -6,7 +6,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github/ccppoo/f1-api/pkg/setting"
+	"github.com/ccppoo/f1-api/pkg/setting"
 )
 
 var db *gorm.DB
